@@ -47,11 +47,14 @@ def match_counter():
         with open('data/WTH_{}.wtb'.format(1977 + year), 'br') as f:
             header_of_file = f.read(16)
             match_cnt = 0
+            ## enumerate()に通せばバイナリの中が見れることがわかった: 改修
+            # for (i, tmp) in enumerate(header_of_file):
+            #     print(i, tmp)
             while True:
                 head_of_each_match = f.read(8)
                 if not head_of_each_match:  # マッチ毎のヘッドデータがなければそこでファイルの終わりと判断
                     break
-                head_of_each_match = f.read(60)  # 対局データ(打った手を示す)
+                raw_data = f.read(60)  # 対局データ(打った手を示す)
                 match_cnt += 1
 
             match_cnt_list.append(match_cnt)
