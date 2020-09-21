@@ -29,6 +29,9 @@ def train(train_x, train_y, model, optimizer,loss_func, epoch, ITERATION_NUM, MI
         # x = torch.tensor(train_x[index].reshape(MINIBATCH_SIZE, 1, 8, 8).astype(np.float32), requires_grad=True)
         x = train_x[index]  # size: (MINIBATCH_SIZE, 1, 8, 8)
         t = train_y[index]
+        # GPU使用の為の設定。なかったらCPUを用いる。
+        x = x.to(device)
+        t = t.to(device)
         # 損失関数の設定
         x = model(x)  # (MINIBATCH SIZE, 64) = (100, 64)の形で返ってくる
         train_loss = loss_func(x, t)
