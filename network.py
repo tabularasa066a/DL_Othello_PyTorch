@@ -5,7 +5,7 @@ import torch.nn.functional as F
 import torch.nn as nn
 import os
 
-OUTPUT_CHANNELS = 50
+OUTPUT_CHANNELS = 64
 # OUTPUT_CHANNELS = 100
 HIDDEN_LAYER_NUM = 10
 
