@@ -113,7 +113,7 @@ def show(state):
 model = network.AgentNet()
 
 ## パラメータの読み込み
-if os.path.isfile('model.pth'):
+if os.path.isfile('./model.pth'):
     # 既に学習済のモデル(model.pth)が存在する場合はこれをmodelインスタンスとして用いる
     params = torch.load("model.pth")
     model.load_state_dict(params)
