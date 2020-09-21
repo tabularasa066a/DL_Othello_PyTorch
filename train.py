@@ -15,6 +15,9 @@ TEST_DATA_SIZE = 100000  # テストデータのサイズ
 MINIBATCH_SIZE = 100  # ミニバッチサイズ
 EVALUATION_SIZE = 1000  # 評価のときのデータサイズ
 
+device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+print(device)
+
 def train(train_x, train_y, model, optimizer,loss_func, epoch, ITERATION_NUM, MINIBATCH_SIZE):
     # model.train()
     for i in range(ITERATION_NUM):
@@ -48,6 +51,9 @@ def test(test_x, test_y, model, optimizer, loss_func ,epoch, EVALUATION_SIZE):
     # x = torch.tensor(test_x[index].reshape(EVALUATION_SIZE, 1, 8, 8).astype(np.float32))
     x = test_x[index]  # size: (MINIBATCH_SIZE, 1, 8, 8)
     t = test_y[index]
+    # GPU使用の為の設定。なかったらCPUを用いる。
+    x = x.to(device)
+    t = t.to(device)
     # 損失関数の設定
     outputs = model(x)  # model.forward(x)の出力値
     validation_loss = loss_func(outputs, t)
