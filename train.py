@@ -15,7 +15,7 @@ TEST_DATA_SIZE = 100000  # テストデータのサイズ
 MINIBATCH_SIZE = 100  # ミニバッチサイズ
 EVALUATION_SIZE = 1000  # 評価のときのデータサイズ
 
-device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+device = torch.device('CUDA' if torch.cuda.is_available() else 'CPU')
 print(device)
 
 def train(train_x, train_y, model, optimizer,loss_func, epoch, ITERATION_NUM, MINIBATCH_SIZE):
