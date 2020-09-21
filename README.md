@@ -1,4 +1,4 @@
-# Deep-Othello
+# Othello AI Player Implemented with Deep Learning
 >## 概要
 AIと対戦するオセロゲーム。CNNを使って[譜面データ](http://www.ffothello.org/informatique/la-base-wthor)を学習させ対戦AIを作成。<br/>
 `.wtb`形式のデータの解析については[こちら](http://hp.vector.co.jp/authors/VA015468/platina/algo/append_a.html)を参考。<br/>

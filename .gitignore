@@ -1,0 +1,4 @@
+./states.npy
+./actions.npy
+./train_loss.csv
+./validation_loss.csv
