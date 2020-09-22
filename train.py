@@ -152,11 +152,11 @@ ITERATION_NUM = 100
 for epoch in range(EPOCHS):
     ## 訓練用関数呼び出し
     train(train_x, train_y, model, optimizer, loss_func, epoch, ITERATION＿NUM, MINIBATCH_SIZE)
+    # モデルを保存する。
+    torch.save(model.state_dict(), "model.pth")
     ## テスト用関数呼び出し
     test(test_x, test_y, model, optimizer, loss_func ,epoch, EVALUATION_SIZE)
 
-# モデルを保存する。
-torch.save(model.state_dict(), "model.pth")
 print("The model has been saved.")
 print("Excute game.py to play.")
 
