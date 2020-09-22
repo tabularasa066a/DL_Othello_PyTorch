@@ -12,7 +12,7 @@ import torch.optim as optim
 # from torchsummary import summary  # ネットワーク構成の表示に使用(kerasのmodel.summary()は便利だった。。。)
 
 TEST_DATA_SIZE = 100000  # テストデータのサイズ
-MINIBATCH_SIZE = 100  # ミニバッチサイズ
+MINIBATCH_SIZE = 1000  # ミニバッチサイズ
 EVALUATION_SIZE = 1000  # 評価のときのデータサイズ
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
@@ -21,6 +21,7 @@ print(device)
 def train(train_x, train_y, model, optimizer,loss_func, epoch, ITERATION_NUM, MINIBATCH_SIZE):
     # model.train()
     for i in range(ITERATION_NUM):
+    # for i in range(0, train_x.shape[0], MINIBATCH_SIZE):
         ## 学習: 重みのアップデート
         # 学習データをランダムに抽出
         # np.random.choice(a, n, replace=False): 0以上a以下の値からn個の値をランダムに抽出(重複無し)
